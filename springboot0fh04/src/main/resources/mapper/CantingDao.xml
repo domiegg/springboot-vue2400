@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CantingDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.CantingEntity" id="cantingMap">
+        <result property="cantingzhanghao" column="cantingzhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="cantingmingcheng" column="cantingmingcheng"/>
+        <result property="cantingweizhi" column="cantingweizhi"/>
+        <result property="cantingdianhua" column="cantingdianhua"/>
+        <result property="cantingfengmian" column="cantingfengmian"/>
+        <result property="money" column="money"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.CantingVO" >
+		SELECT * FROM canting  canting         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.CantingVO" >
+		SELECT  canting.* FROM canting  canting 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.CantingView" >
+
+		SELECT  canting.* FROM canting  canting 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.CantingView" >
+		SELECT * FROM canting  canting <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
